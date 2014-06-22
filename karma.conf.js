@@ -15,7 +15,10 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '*.js'
+      'app/scripts/main.js',
+      'app/scripts/*.js',
+      'tests/fixtures/*.html',
+      'tests/**/*_spec.coffee'
     ],
 
 
@@ -28,7 +31,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-    
+        "tests/**/*.coffee": ['coffee'],
+        "tests/fixtures/*.html": ['html2js']
     },
 
 
@@ -48,7 +52,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
 
 
     // enable / disable watching file and executing tests whenever any file changes

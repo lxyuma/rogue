@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>rogue</title>
+    <script type="text/javascript" src="scripts/rogue.js"></script>
+</head>
+<body>
+    <canvas id="main" width="1024" height="768" style="background-color:black;"></canvas>
+    <script>
+        var canvas = document.getElementById("main");
+        var context = canvas.getContext("2d");
+        context.fillStyle = 'white';
+        context.font = "20px 'Arial'";
+        var padding_x = 10;
+        var padding_y = 20;
+        for(var y = 0; y < 16; y++){
+            for(var x = 0; x < 16; x++){
+                context.fillText("#", padding_x + (15 * x) , padding_y + (20 * y));
+            }
+        }
+        canvas.addEventListener("click", function(){
+            console.log('clicked');
+        });
+    </script>
+</body>
+</html>
